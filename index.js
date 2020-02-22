@@ -8,7 +8,7 @@ const fetchImage = url => {
 
 module.exports = ({ markdownAST }, pluginOptions) => {
 	visit(markdownAST, 'image', (node) => {
-		const { url } = node
+		const { url, alt, title } = node
 
 		if (url.endsWith('.svg')) {
 			let html = fetchImage(url)
@@ -20,9 +20,14 @@ module.exports = ({ markdownAST }, pluginOptions) => {
 				})
 			}
 
+			if (alt) html = html.replace(/<title>.*<\/title>/, `<title>${alt}</title>`);
+
 			if (html) {
 				node.type = 'html'
-				node.value = `${html}`
+				node.value = `<figure>
+					${html.trim()}
+					${title ? `<figcaption>${title}</figcaption>` : ''}
+				</figure>`
 			}
 		}
 	})
