@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-remark-jh-inline-svg",
+  "version": "0.1.0",
+  "description": "Gatsby plugin to inline SVGs in Jonathan Harrell's site",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanharrell/gatsby-remark-jh-inline-svg.git"
+  },
+  "author": "Jonathan Harrell <harr041@gmail.com> (www.jonathan-harrell.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathanharrell/gatsby-remark-jh-inline-svg/issues"
+  },
+  "homepage": "https://github.com/jonathanharrell/gatsby-remark-jh-inline-svg#readme",
+  "dependencies": {
+    "unist-util-visit": "^2.0.2"
+  }
+}
