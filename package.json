@@ -1,6 +1,6 @@
 {
   "name": "gatsby-remark-jh-inline-svg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Gatsby plugin to inline SVGs in Jonathan Harrell's site",
   "main": "index.js",
   "repository": {
