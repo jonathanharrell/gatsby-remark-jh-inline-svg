@@ -26,6 +26,17 @@ module.exports = ({ markdownAST }, pluginOptions) => {
         .replace(/<title>.*<\/title>/, `<title>${alt}</title>`)
         .replace(svgAttrs, `${svgAttrs} role="img"`)
 
+      const titleRe = new RegExp(/<title>/, 'g')
+
+      if (alt && !html.match(titleRe)) {
+        const svgRe = new RegExp(/<svg(.*)>/)
+        const [svgTag] = html.match(svgRe)
+
+        if (svgTag) {
+          html = html.replace(svgTag, `${svgTag}\n<title>${alt}</title>`)
+        }
+      }
+
       if (html) {
         node.type = 'html'
         node.value = `<figure>
